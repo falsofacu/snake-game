@@ -6,6 +6,7 @@
 
 body {
   background-color: transparent;
+  overflow: hidden;
 }
 
 #game {
