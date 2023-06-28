@@ -11,5 +11,6 @@ body {
 
 #game {
   background-color: transparent;
+  outline: 1px solid black;
 }
 
