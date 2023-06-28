@@ -3,8 +3,8 @@ const canvas = document.getElementById("game");
 const c = canvas.getContext('2d');
 
 //Canvas options
-canvas.width = 600;
-canvas.height = 400;
+canvas.width = 750;
+canvas.height = 495;
 
 //Keyboard
 const keyboard = {

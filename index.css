@@ -5,10 +5,10 @@
 }
 
 body {
-  background-color: #000;
+  background-color: transparent;
 }
 
 #game {
-  background-color: #222;
-  outline: 5px solid #000;
+  background-color: transparent;
 }
+
