@@ -15,7 +15,6 @@ body {
   left: 1px;
   background-color: transparent;
   outline: 1px solid #FFF;
-  mix-blend-mode: exclusion;
 }
 
 /* Menus */
