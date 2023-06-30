@@ -1,19 +1,24 @@
 class SnakeHead {
-  constructor (x, y) {
+  constructor ([x, y], radius, color, strokeColor) {
+    this.type = "head";
     this.x = x;
     this.y = y;
-    this.radius = 10;
-    this.speed = 2;
-    this.directionRad = 0; 
-    this.targetDirectionRad = 0;
-    this.rotationSpeed = 0.06;
+    this.radius = radius;
+    this.strokeColor = strokeColor;
+    this.color = color;
+    this.speed = initialSpeed;
+    this.directionRad = initialDirectionRad; 
+    this.targetDirectionRad = initialDirectionRad;
+    this.rotationSpeed = initialRotationSpeed;
   }
 
   draw() {
-    c.beginPath();
-    c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-    c.strokeStyle = "#FFF";
-    c.stroke();
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+    ctx.strokeStyle = this.strokeColor;
+    ctx.fillStyle = this.color;
+    ctx.stroke();
+    ctx.fill();
   }
 
   update() {
@@ -36,19 +41,28 @@ class SnakeHead {
 
 class SnakeBody {
   constructor (prevSegment) {
+    this.type = "body";
     this.prevSegment = prevSegment;
     this.radius = prevSegment.radius;
     this.directionRad = prevSegment.directionRad;
-    this.distance = 2.5 * this.radius;
+    this.distance = 2.3 * this.radius;
     this.x = this.prevSegment.x - Math.cos(this.directionRad) * this.distance;
     this.y = this.prevSegment.y - Math.sin(this.directionRad) * this.distance;
+    this.strokeColor = strokeColor;
+    this.color = `rgb(${bodyRed}, ${bodyGreen}, ${bodyBlue})`;
+    //Darken global color for next body
+    bodyRed += colorDarkenStep;
+    bodyGreen += colorDarkenStep;
+    bodyBlue += colorDarkenStep;
   }
 
   draw() {
-    c.beginPath();
-    c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-    c.strokeStyle = "#F00";
-    c.stroke();
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+    ctx.strokeStyle = this.strokeColor;
+    ctx.fillStyle = this.color;
+    ctx.stroke();
+    ctx.fill();
   }
 
   update() {

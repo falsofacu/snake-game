@@ -5,12 +5,79 @@
 }
 
 body {
-  background-color: transparent;
   overflow: hidden;
+  background-color: transparent;
 }
 
 #game {
   background-color: transparent;
-  outline: 1px solid black;
+  outline: 1px solid #000;
+  mix-blend-mode: exclusion;
 }
 
+/* Menus */
+#snake-title, #game-over-title {
+  pointer-events: none;
+  position: absolute;
+  top: 200px;
+  left: 375px;
+  transform: translate(-50%, -50%);
+  font-family: "DexaRound", sans-serif;
+  font-size: 150px;
+  color: #E64360;
+  -webkit-text-stroke: 3px #FFF;
+  letter-spacing: -6px;
+  filter: drop-shadow(0 0 10px rgba(0,0,0, 0.5));
+}
+
+#game-over-title {
+  white-space: nowrap;
+  top: 220px;
+  font-size: 100px;
+  letter-spacing: -4px;
+}
+
+#start-button, 
+#game-over-button {
+  all: unset;
+  position: absolute;
+  top: 360px;
+  left: 375px;
+  transform: translate(-50%, -50%);
+
+  outline: revert;
+  padding: 13px 30px 10px 30px;
+  font-family: "PovetSans";
+  font-size: 25px;
+  border: 2px solid #FFF;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #FFF;
+  background-color: #E64360;
+  filter: drop-shadow(0 0 10px rgba(0,0,0, 0.5));
+}
+
+#start-button:active, 
+#game-over-button:active {
+  transform: translate(-50%, -50%) scale(0.95);
+  filter: drop-shadow(0 0 10px rgba(0,0,0, 0));
+}
+
+#game-over-menu {
+  display: none;
+}
+
+#game-over-button {
+  top: 325px;
+}
+
+/* Fonts */
+@font-face {
+  font-family: "PovetSans";
+  src: url("./Fonts/Povet-Sans.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "DexaRound";
+  src: url("./Fonts/DexaRound_ExtraBold.otf") format("opentype");
+}

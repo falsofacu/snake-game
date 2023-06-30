@@ -7,11 +7,25 @@
   <title>Snake Game</title>
 </head>
 <body>
+  
   <canvas id="game"></canvas>
-  <script src="./GUI.js"></script>
-  <script src="./Levels.js"></script>
-  <script src="./Snake.js"></script>
-  <script src="./Food.js"></script>
-  <script src="./App.js"></script>
+  
+  <div id="start-menu">
+    <h2 id="snake-title">SNAKE</h2>
+    <button id="start-button" onclick="handleStartButton()">START</button>
+  </div>
+  
+  <div id="game-over-menu">
+    <h2 id="game-over-title">GAME OVER</h2>
+    <button id="game-over-button" onclick="handleGameOverButton()">RESTART</button>
+  </div>
+  
+  <script src="./Logic/Menus.js"></script>
+  <script src="./Logic/GUI.js"></script>
+  <script src="./Logic/LevelUp.js"></script>
+  <script src="./Logic/isGameOver.js"></script>
+  <script src="./Logic/Food.js"></script>
+  <script src="./Logic/Snake.js"></script>
+  <script src="./main.js"></script>
 </body>
 </html>
