@@ -51,11 +51,16 @@ const handleKeyDown = (event) => {
 
   switch(event.key.toUpperCase()) {
     case "A":
+    case "ARROWLEFT":
       keyboard.a = true;
       break;
     case "D":
+    case "ARROWRIGHT":
       keyboard.d = true;
       break;
+    case "ENTER":
+    case " ":
+      losed && handleGameOverButton();
     default:
       break;
   }
@@ -64,9 +69,11 @@ const handleKeyDown = (event) => {
 const handleKeyUp = (event) => {
   switch(event.key.toUpperCase()) {
     case "A":
+    case "ARROWLEFT":
       keyboard.a = false;
       break;
     case "D":
+    case "ARROWRIGHT":
       keyboard.d = false;
       break;
     default:
@@ -102,10 +109,10 @@ const food = new Food(circleRadius);
 
 //Game Loop
 
-function animate() {
+function animate() {  
   if (paused) {
     requestAnimationFrame(animate);
-    console.log("paused");
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
   }
   else {
     requestAnimationFrame(animate);
@@ -127,6 +134,7 @@ function animate() {
       gameOverElem.style.display = "block";
     }
   }
+  drawGUI(level, points);
 }
 
 animate();

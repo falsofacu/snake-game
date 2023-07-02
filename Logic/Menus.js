@@ -17,4 +17,6 @@ const handleGameOverButton = () => {
   initialBody();
   paused = false;
   losed = false; 
+  level = 0;
+  points = 0;
 }

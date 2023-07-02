@@ -35,7 +35,6 @@ class Food {
         this.addBody(snakeBody);
         levelUp(snakeHead, snakeBody);
         points += 10 + level;
-        console.log(points);
     }
   }
 }
